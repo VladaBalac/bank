@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../model/user';
 
 @Component({
@@ -8,10 +8,17 @@ import { User } from '../model/user';
 })
 export class TableComponent implements OnInit {
 	@Input() private user :User[];
+	@Output() private userDelete : EventEmitter<number>
 
-  constructor() { }
+  constructor() {
+  	this.userDelete = new EventEmitter();
+  }
 
   ngOnInit() {
+  }
+
+  delete(id :number){
+  	this.userDelete.emit(id);
   }
 
 }

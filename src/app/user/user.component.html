@@ -1,7 +1,7 @@
 
 	<div class="row">
 		<div class="col">
-			<app-table [user]="userList"></app-table>
+			<app-table [user]="userList" (userDelete)="refresh($event)"></app-table>
 		</div>
 </div>
 
